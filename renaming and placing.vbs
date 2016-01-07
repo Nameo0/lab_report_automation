@@ -28,7 +28,7 @@ curDirectory = "L:\Lab Reports"
 set scrShell = CreateObject("Wscript.Shell")
 scrShell.CurrentDirectory = curDirectory
 
-date_year	= Year(Now)+1
+date_year	= Year(Now)
 'Converts YYYY to YY
 date_year_short = Right(date_year,2)
 'Makes sure all month values are 2 digit
