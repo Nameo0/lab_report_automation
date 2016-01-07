@@ -32,7 +32,7 @@ date_year	= Year(Now)
 'Converts YYYY to YY
 date_year_short = Right(date_year,2)
 'Makes sure all month values are 2 digit
-date_month	= Right("0" & Month(Now), 2)
+date_month	        = Right("0" & Month(Now), 2)
 date_month_name	= MonthName(date_month)
 'Makes sure all day values are 2 digit
 date_day 	= Right("0" & Day(Now), 2)
@@ -63,11 +63,11 @@ scrShell.CurrentDirectory = curDirectory & "\" & date_month_name
 curDirectory = scrShell.CurrentDirectory
 
 'Checks if a lab report exists for today, if not one is copied and made
-templatetoUse = "CLT - Report Form - USU (Break Hours).docx" 'Make sure that the '.docs' part exists when you input the new fiel template
+templatetoUse = "CLT - Report Form - USU (Break Hours).docx" 'Make sure that the '.docs' part exists when you input the new file template
 theFileName = "USU Lab Report " & date_month & "-" & date_day & "-" & date_year_short & ".docx"
 If Not(objFSO.FileExists(curDirectory & "\" & theFileName)) Then
-	objFSO.CopyFile "L:\Lab Reports\" & templateToUse, curDirectory & "\"
-	objFSO.MoveFile "CLT - Report Form - USU (Break Hours).docx", theFileName
+	objFSO.CopyFile("L:\Lab Reports\" & templateToUse, curDirectory & "\")
+	objFSO.MoveFile("CLT - Report Form - USU (Break Hours).docx", theFileName)
 Else
 	MsgBox("The file alread exists")
 End If
