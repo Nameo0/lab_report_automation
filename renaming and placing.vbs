@@ -12,6 +12,7 @@
 dim objFSO	'As FileSystemObject
 'dim objShell	'As ObjectShell
 dim scrShell	'As ScriptShell
+dim objWord	'As Application
 dim curDirectory
 dim date_year
 dim date_month
@@ -21,6 +22,7 @@ dim theFileName
 dim OFFICE_PATH
 
 set objFSO	= CreateObject("Scripting.FileSystemObject")
+set objWord	= CreateObject("Word.Application")
 'set objShell	= wscript.CreateObject("Shell.Application")
 
 'Used to change working directory
@@ -72,6 +74,9 @@ Else
 	MsgBox("The file alread exists")
 End If
 
+objWord.Visible = TRUE
+objWord.Documents.Open("L:\Lab Reports\2016\USU\January\USU Lab Report " & date_month & "-" & date_day & "-" & date_year_short & ".docx")
+
 'objShell.Open(theFileName)
 
-MsgBox("tacocat")
+'MsgBox("tacocat")
